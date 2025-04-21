@@ -1,0 +1,27 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.wrrulosdev.mcpclient.client.mixins",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "gui.LogoDrawerMixin",
+    "hud.ChatHudMixin",
+    "network.ClientPlayNetworkHandlerMixin",
+    "network.MessageHandlerMixin",
+    "network.PlayerListHudMixin",
+    "screen.MultiplayerScreenMixin",
+    "screen.ScreenMixin",
+    "screen.ServerEntryMixin",
+    "screen.TitleScreenMixin",
+    "session.SessionMixin",
+    "window.MinecraftClientMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+    "network.ClientConnectionMixin",
+    "network.HandshakeC2SMixin",
+    "network.PluginChannelHandlerMixin"
+  ]
+}
