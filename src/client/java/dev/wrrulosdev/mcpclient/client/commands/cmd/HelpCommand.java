@@ -20,6 +20,7 @@ public class HelpCommand implements Command {
         "&7- &b/mcp multichat <consoleCommand> &7- &fSubmit the payload to run a command in the proxy using the MultiChat plugin.\n" +
         "&7- &b/mcp t2copsecurity <consoleCommand> &7- &fSubmit the payload to run a command in the console using the T2CodeLib plugin.\n" +
         "&7- &b/mcp plugins &7- &fTry to get the plugins from the server using the tab autocomplete.\n" +
+        "&7- &b/mcp players &7- &fDisplays the uuid of the connected players.\n" +
         "&7- &b/mcp hclip <distance> &7- &fTeleport horizontally by the specified distance.\n" +
         "&7- &b/mcp vclip <distance> &7- &fTeleport vertically by the specified distance.\n" +
         "&7- &b/mcp password <username> &7- &fDisplays all users with leaked passwords from the server. &8(&cMCPTool PRO plan only&8)\n" +

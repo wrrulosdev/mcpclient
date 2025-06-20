@@ -23,6 +23,7 @@ public class CommandManager {
         COMMANDS.add(new VClipCommand());
         COMMANDS.add(new HClipCommand());
         COMMANDS.add(new PluginsCommand());
+        COMMANDS.add(new PlayersCommand());
         COMMANDS.add(new AuthMeVelocityExploitCommand());
         COMMANDS.add(new MultiChatExploitCommand());
         COMMANDS.add(new EasyCommandBlockerExploitCommand());
