@@ -199,6 +199,6 @@ public abstract class TitleScreenMixin extends Screen {
         index = 1
     )
     private String modifyVersionText(String original) {
-        return "MCPClient v1.0.0";
+        return "MCPClient v1.1.0";
     }
 }

@@ -21,6 +21,6 @@ public class MinecraftClientMixin {
         ordinal = 1),
         cancellable = true)
     private void getClientTitle(CallbackInfoReturnable<String> callback) {
-        callback.setReturnValue("MCPClient v1.0.0 - " + SharedConstants.getGameVersion().getName());
+        callback.setReturnValue("MCPClient v1.1.0 - " + SharedConstants.getGameVersion().getName());
     }
 }
