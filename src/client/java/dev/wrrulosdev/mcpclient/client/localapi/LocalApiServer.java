@@ -1,19 +1,12 @@
 package dev.wrrulosdev.mcpclient.client.localapi;
 
-import com.google.gson.Gson;
-import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
 
 import dev.wrrulosdev.mcpclient.client.localapi.endpoints.AddServerEndpoint;
 import dev.wrrulosdev.mcpclient.client.localapi.endpoints.ConnectEndpoint;
 
 import java.io.IOException;
-import java.io.OutputStream;
 import java.net.InetSocketAddress;
-import java.net.URLDecoder;
-import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
-import java.util.Map;
 
 public class LocalApiServer {
 

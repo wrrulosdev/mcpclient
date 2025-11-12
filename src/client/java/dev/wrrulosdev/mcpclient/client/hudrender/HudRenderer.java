@@ -10,6 +10,7 @@ import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.render.RenderTickCounter;
 import net.minecraft.text.Text;
 
+@SuppressWarnings("deprecation") // There are no problems at the moment
 public class HudRenderer implements HudRenderCallback {
 
     /**

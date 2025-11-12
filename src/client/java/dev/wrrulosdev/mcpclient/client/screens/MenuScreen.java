@@ -32,14 +32,11 @@ public class MenuScreen extends Screen {
         super.init();
 
         int buttonWidth = 160;
-        int iconsButtonWidth = 32;
         int buttonsHeight = 25;
-        int padding = 20;
 
         int buttonX = (this.width - buttonWidth) / 2;
         int buttonY = (this.height - buttonsHeight) / 2 + 30;
 
-        // Create the settings button
         this.settingButton = CustomButton.builder(Text.literal("Client Settings"))
             .position(buttonX, buttonY)
             .dimensions(buttonWidth, buttonsHeight)
@@ -66,8 +63,6 @@ public class MenuScreen extends Screen {
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         super.render(context, mouseX, mouseY, delta);
-
-        // Draw title (currently empty but can be modified)
         context.drawCenteredTextWithShadow(
             this.textRenderer,
             this.title,
@@ -76,7 +71,6 @@ public class MenuScreen extends Screen {
             0xFFFFFF
         );
 
-        // Draw logo above the settings button
         int logoX = this.width / 2 - 65;
         int logoY = this.settingButton.getY() - 80 - 10;
 
@@ -92,5 +86,15 @@ public class MenuScreen extends Screen {
             130,
             80
         );
+    }
+
+    /**
+     * Closes this screen and returns to the parent screen.
+     */
+    @Override
+    public void close() {
+        if (client != null) {
+            this.client.setScreen(parent);
+        }
     }
 }

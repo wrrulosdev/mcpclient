@@ -13,7 +13,8 @@ public class SessionController {
     private boolean fakeIpEnabled = false;
     private boolean fakeHostnameEnabled = false;
     private String currentUuid = "";
-    private String originalUuid = "";
+    @SuppressWarnings("unused")
+    private String originalUuid = ""; // TODO: At another time, check if it is really necessary to store the original UUID
     private String fakeIp = "1.3.3.7";
     private String fakeHostname = "0.0.0.0";
     private boolean invalidUuid = false;

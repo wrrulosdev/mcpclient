@@ -22,11 +22,6 @@ import net.minecraft.client.MinecraftClient;
 
 import java.io.IOException;
 
-/**
- * Main class for the MCPClient mod. Handles initialization and lifecycle events
- * such as client tick events, HUD rendering, and client commands. Initializes
- * necessary managers and storage components.
- */
 public class Mcpclient implements ClientModInitializer {
 
     private static SessionController sessionController;
@@ -45,6 +40,7 @@ public class Mcpclient implements ClientModInitializer {
      * Initializes the mod by setting up all required components and event handlers.
      * Registers client tick events, HUD rendering, commands, and other necessary systems.
      */
+    @SuppressWarnings("deprecation") // There are no problems at the moment "HudRenderCallback"
     @Override
     public void onInitializeClient() {
         start();
@@ -64,16 +60,20 @@ public class Mcpclient implements ClientModInitializer {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             keybindingManager.tick(client);
         });
+
         HudRenderCallback.EVENT.register((drawContext, tickDelta) -> {
             PasswordRender.onHudRender(drawContext);
         });
+
         HudRenderCallback.EVENT.register(new HudRenderer());
         ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
             CommandManager.registerCommands(dispatcher);
         });
+
         ClientLifecycleEvents.CLIENT_STARTED.register(client -> {
             gifTextureManager = new GifTextureManager("textures/gui/background.gif", 60);
         });
+        
         PayloadRegistry.registerAllPayloads();
         startLocalApi();
     }

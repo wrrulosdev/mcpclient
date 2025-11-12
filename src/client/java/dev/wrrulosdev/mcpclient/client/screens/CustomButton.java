@@ -1,6 +1,5 @@
 package dev.wrrulosdev.mcpclient.client.screens;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import dev.wrrulosdev.mcpclient.client.Mcpclient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
