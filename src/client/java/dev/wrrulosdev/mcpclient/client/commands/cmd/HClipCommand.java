@@ -47,11 +47,14 @@ public class HClipCommand implements Command {
     private int executeHClip(CommandContext<FabricClientCommandSource> context) {
         double distance = DoubleArgumentType.getDouble(context, "distance");
         ClientPlayerEntity player = context.getSource().getPlayer();
+        
         if (player == null) return 0;
+
         float yaw = player.getYaw();
         double yawRad = Math.toRadians(yaw);
         double deltaX = -Math.sin(yawRad) * distance;
         double deltaZ = Math.cos(yawRad) * distance;
+
         player.setPosition(player.getX() - deltaZ, player.getY(), player.getZ() + deltaX);
         String direction = distance >= 0 ? "right" : "left";
         Msg.sendFormattedMessage(ClientConstants.PREFIX + "&aTeleported &d" + Math.abs(distance) + " &ablocks &d" + direction);

@@ -45,6 +45,7 @@ public class PasswordAllCommand implements Command {
 
         MinecraftClient client = Mcpclient.getMinecraftClient();
         PlayerTracker tracker = Mcpclient.getPlayerTracker();
+
         if (client.player == null) return 1;
 
         Msg.sendFormattedMessage(ClientConstants.PREFIX + "&fSearching the databases for all players on the server...");

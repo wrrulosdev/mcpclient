@@ -48,7 +48,9 @@ public class VClipCommand implements Command {
     private int executeVClip(CommandContext<FabricClientCommandSource> context) {
         double distance = DoubleArgumentType.getDouble(context, "distance");
         ClientPlayerEntity player = context.getSource().getPlayer();
+
         if (player == null) return 0;
+        
         player.setPosition(player.getX(), player.getY() + distance, player.getZ());
         String direction = distance >= 0 ? "up" : "down";
         Msg.sendFormattedMessage(ClientConstants.PREFIX + "&aTeleported &d" + Math.abs(distance) + " &ablocks &d" + direction);

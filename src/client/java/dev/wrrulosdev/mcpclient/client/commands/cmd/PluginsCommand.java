@@ -71,6 +71,7 @@ public class PluginsCommand implements Command {
         } catch (InterruptedException e) {
             Msg.sendFormattedMessage(ClientConstants.PREFIX + "The request for plugin names was interrupted.");
             System.err.println("Error during plugin request: " + e.getMessage());
+            
         } catch (Exception e) {
             Msg.sendFormattedMessage(ClientConstants.PREFIX + "An error occurred while requesting command completions.");
             System.err.println("Error occurred while requesting command completions: " + e.getMessage());
@@ -87,6 +88,7 @@ public class PluginsCommand implements Command {
         try {
             System.out.println("Sending packet for command: " + command);
             Objects.requireNonNull(client.getNetworkHandler()).sendPacket(new RequestCommandCompletionsC2SPacket(0, command));
+
         } catch (Exception e) {
             System.err.println("Failed to send completion request for command: " + command + ". Error: " + e.getMessage());
         }

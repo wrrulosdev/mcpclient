@@ -3,7 +3,6 @@ package dev.wrrulosdev.mcpclient.client.commands;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
-import dev.wrrulosdev.mcpclient.client.Mcpclient;
 import dev.wrrulosdev.mcpclient.client.commands.cmd.*;
 import dev.wrrulosdev.mcpclient.client.constants.ClientConstants;
 import dev.wrrulosdev.mcpclient.client.utils.messages.Msg;
