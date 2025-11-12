@@ -4,7 +4,7 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
 import dev.wrrulosdev.mcpclient.client.localapi.ApiResponse;
-import dev.wrrulosdev.mcpclient.client.localapi.LocalApiServer;
+import dev.wrrulosdev.mcpclient.client.utils.http.HttpUtils;
 import dev.wrrulosdev.mcpclient.client.utils.network.OnlineServers;
 import net.minecraft.client.MinecraftClient;
 
@@ -24,20 +24,20 @@ public class AddServerEndpoint implements HttpHandler {
     public void handle(HttpExchange exchange) throws IOException {
         if (!"PUT".equals(exchange.getRequestMethod())) {
             ApiResponse response = ApiResponse.error("invalid_request_method");
-            LocalApiServer.sendJsonResponse(exchange, 405, response);
+            HttpUtils.sendJsonResponse(exchange, 405, response);
             return;
         }
 
-        String address = LocalApiServer.extractQueryParam(exchange.getRequestURI().getQuery(), "address");
+        String address = HttpUtils.extractQueryParam(exchange.getRequestURI().getQuery(), "address");
 
         if (address == null || address.isEmpty()) {
             ApiResponse response = ApiResponse.error("parameter_missing");
-            LocalApiServer.sendJsonResponse(exchange, 405, response);
+            HttpUtils.sendJsonResponse(exchange, 405, response);
             return;
         }
 
         OnlineServers.addServer(address, MinecraftClient.getInstance());
         ApiResponse response = ApiResponse.success("server_added");
-        LocalApiServer.sendJsonResponse(exchange, 200, response);
+        HttpUtils.sendJsonResponse(exchange, 200, response);
     }
 }
