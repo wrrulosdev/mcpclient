@@ -3,6 +3,7 @@ package dev.wrrulosdev.mcpclient.client;
 import dev.wrrulosdev.mcpclient.client.commands.CommandManager;
 import dev.wrrulosdev.mcpclient.client.hudrender.HudRenderer;
 import dev.wrrulosdev.mcpclient.client.keybinds.KeybindingManager;
+import dev.wrrulosdev.mcpclient.client.localapi.LocalApiServer;
 import dev.wrrulosdev.mcpclient.client.passwords.PasswordRender;
 import dev.wrrulosdev.mcpclient.client.passwords.PlayerTracker;
 import dev.wrrulosdev.mcpclient.client.payloads.PayloadRegistry;
@@ -37,6 +38,7 @@ public class Mcpclient implements ClientModInitializer {
     private static PluginChannelStorage pluginChannelStorage;
     private static PluginTabStorage pluginTabStorage;
     private static GifTextureManager gifTextureManager;
+    private static LocalApiServer localApiServer;
     private static boolean MCPToolAPIEnabled = false;
 
     /**
@@ -73,6 +75,7 @@ public class Mcpclient implements ClientModInitializer {
             gifTextureManager = new GifTextureManager("textures/gui/background.gif", 60);
         });
         PayloadRegistry.registerAllPayloads();
+        startLocalApi();
     }
 
     /**
@@ -87,6 +90,19 @@ public class Mcpclient implements ClientModInitializer {
         spoofColors = new SpoofColors();
         pluginChannelStorage = new PluginChannelStorage();
         pluginTabStorage = new PluginTabStorage();
+        localApiServer = new LocalApiServer();
+    }
+
+    private void startLocalApi() {
+        if (localApiServer != null) {
+            localApiServer.start();
+        }
+    }
+
+    public static void stopLocalApi() {
+        if (localApiServer != null) {
+            localApiServer.stop();
+        }
     }
 
     /**
